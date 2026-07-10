@@ -12,9 +12,11 @@ function grafic2(){
         }
         if (document.getElementById("area").value != '-') {
             if (document.getElementById("area").value == 'parcs') {
-				filtre_mostrejos = filtre_mostrejos.filter(element => element.nombre_ubicacion.startsWith('Platja') == false);		
+				filtre_mostrejos = filtre_mostrejos.filter(element => element.nombre_ubicacion.startsWith('Parc'));		
 			} else if (document.getElementById("area").value == 'platges') {
 				filtre_mostrejos = filtre_mostrejos.filter(element => element.nombre_ubicacion.startsWith('Platja'));	
+      } else if (document.getElementById("area").value == 'fluvials') {
+        filtre_mostrejos = filtre_mostrejos.filter(element => element.nombre_ubicacion.startsWith('Riu'));	
 			} else {
 				filtre_mostrejos = filtre_mostrejos.filter(element => element.nombre_ubicacion == document.getElementById("area").value );
 			}

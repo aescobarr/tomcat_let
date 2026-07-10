@@ -6,17 +6,19 @@ function grafic1(){
     } else {
         filtre_observadors = observadors;
     }
-     if (document.getElementById("area").value != '-') {
-            if (document.getElementById("area").value == 'parcs') {
-				filtre_observadors = filtre_observadors.filter(element => element.nombre_ubicacion.startsWith('Parc'));		
-			} else if (document.getElementById("area").value == 'platges') {
-				filtre_observadors = filtre_observadors.filter(element => element.nombre_ubicacion.startsWith('Platja'));	
-			} else {
-				filtre_observadors = filtre_observadors.filter(element => element.nombre_ubicacion == document.getElementById("area").value );
-			}
-        } else {
-            filtre_observadors = filtre_observadors;
-        }
+    if (document.getElementById("area").value != '-') {
+      if (document.getElementById("area").value == 'parcs') {
+        filtre_observadors = filtre_observadors.filter(element => element.nombre_ubicacion.startsWith('Parc'));		
+      } else if (document.getElementById("area").value == 'platges') {
+        filtre_observadors = filtre_observadors.filter(element => element.nombre_ubicacion.startsWith('Platja'));	
+      } else if (document.getElementById("area").value == 'fluvials') {
+        filtre_observadors = filtre_observadors.filter(element => element.nombre_ubicacion.startsWith('Riu'));	
+      } else {
+        filtre_observadors = filtre_observadors.filter(element => element.nombre_ubicacion == document.getElementById("area").value );
+      }
+    } else {
+        filtre_observadors = filtre_observadors;
+    }
     grafic1b();
   });
 }
@@ -38,6 +40,8 @@ function grafic1b() {
 							filtre_most_temps = filtre_most_temps.filter(element => element.nombre_ubicacion.startsWith('Parc'));		
 						} else if (document.getElementById("area").value == 'platges') {
 							filtre_most_temps = filtre_most_temps.filter(element => element.nombre_ubicacion.startsWith('Platja'));	
+            } else if (document.getElementById("area").value == 'fluvials') {
+							filtre_most_temps = filtre_most_temps.filter(element => element.nombre_ubicacion.startsWith('Riu'));	
 						} else {
 							filtre_most_temps = filtre_most_temps.filter(element => element.nombre_ubicacion == document.getElementById("area").value );
 						}
