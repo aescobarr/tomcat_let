@@ -1,0 +1,11 @@
+services:
+  tomcat:
+    build: .
+    ports:
+      - 1338:8080
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - SQL_USER=${SQL_USER}
+      - SQL_PASSWORD=${SQL_PASSWORD}
+      - SQL_DATABASE=${SQL_DATABASE}
+      - SQL_DATABASE_HOST=${SQL_DATABASE_HOST}
