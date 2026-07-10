@@ -8,9 +8,10 @@ function parcs(){
         url: "parcs.jsp", 
         success: function(data) {
                 parc = data;
-                listItems += '<option selected="selected" value="-">Tots els parcs i platges </option>';
+                listItems += '<option selected="selected" value="-">Tots els parcs, platges i espais fluvials </option>';
 				listItems += '<option value="parcs">Tots els parcs</option>';
 				listItems += '<option value="platges">Totes les platges</option>';
+                listItems += '<option value="fluvials">Tots els espais fluvials</option>';
                 for (var i = 0; i < parc.length; i++) {
                     listItems += '<option value="' + parc[i].nombre_ubicacion + '">' + parc[i].nombre_ubicacion + '</option>';
                 }
@@ -84,9 +85,11 @@ function filtrat(){
 
     if (document.getElementById("area").value != '-') {
         if (document.getElementById("area").value == 'parcs') {
-            filtre_observa = filtre_observa.filter(element => element.nombre_ubicacion.startsWith('Platja') == false);		
+            filtre_observa = filtre_observa.filter(element => element.nombre_ubicacion.startsWith('Parc'));		
         } else if (document.getElementById("area").value == 'platges') {
             filtre_observa = filtre_observa.filter(element => element.nombre_ubicacion.startsWith('Platja'));	
+        } else if (document.getElementById("area").value == 'fluvials') {
+            filtre_observa = filtre_observa.filter(element => element.nombre_ubicacion.startsWith('Riu'));	
         } else {
             filtre_observa = filtre_observa.filter(element => element.nombre_ubicacion == document.getElementById("area").value );
         }
@@ -97,7 +100,7 @@ function filtrat(){
         filtre_observa = filtre_observa.filter(element => element.nombre_especie == document.getElementById("especie").value );
       } else {
           filtre_observa = filtre_observa;
-      }
+      }    
 }
 
 function unic(){
